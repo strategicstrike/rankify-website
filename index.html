@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rankify NEET | JEE Institute</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    body {margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#222}
+    header {background:#0b1c2d;color:#fff;padding:20px}
+    header h1 {margin:0}
+    nav a {color:#fff;margin-right:15px;text-decoration:none;font-weight:600}
+    .hero {padding:60px 20px;text-align:center;background:linear-gradient(135deg,#0b1c2d,#123b63);color:#fff}
+    .btn {display:inline-block;padding:12px 22px;margin:8px;background:#ffb703;color:#000;text-decoration:none;border-radius:6px;font-weight:700;cursor:pointer}
+    .section {padding:50px 20px;max-width:1100px;margin:auto}
+    .grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    .card {background:#fff;padding:20px;border-radius:10px;box-shadow:0 6px 16px rgba(0,0,0,.08)}
+    footer {background:#0b1c2d;color:#fff;text-align:center;padding:20px;font-size:14px}
+    input {width:100%;padding:10px;margin:8px 0}
+    .hidden {display:none}
+  </style>
+</head>
+<body><header>
+  <h1>Rankify NEET | JEE Institute</h1>
+  <nav>
+    <a href="#courses">Courses</a>
+    <a href="#tests">Test Series</a>
+    <a href="#login">Login</a>
+  </nav>
+</header><section class="hero">
+  <h2>Where Preparation Turns into Rank</h2>
+  <p>Focused NEET & JEE Preparation with Discipline and Testing</p>
+</section><section id="courses" class="section">
+  <h2>Buy Online Courses</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>NEET Online Course</h3>
+      <p>Recorded Lectures + Weekly Tests</p>
+      <p><strong>₹25,000</strong></p>
+      <button class="btn" onclick="payNow('NEET Course',25000)">Pay & Enroll</button>
+    </div>
+    <div class="card">
+      <h3>JEE Online Course</h3>
+      <p>Advanced Problems + Test Series</p>
+      <p><strong>₹30,000</strong></p>
+      <button class="btn" onclick="payNow('JEE Course',30000)">Pay & Enroll</button>
+    </div>
+  </div>
+</section><section id="login" class="section">
+  <h2>Student Login</h2>
+  <input id="username" placeholder="Enter Username" />
+  <input id="password" type="password" placeholder="Enter Password" />
+  <button class="btn" onclick="login()">Login</button>
+</section><section id="dashboard" class="section hidden">
+  <h2>Student Dashboard</h2>
+  <p>Welcome, <span id="studentName"></span></p>
+  <button class="btn" onclick="showTests()">Attempt Test</button>
+  <button class="btn" onclick="showVideos()">View Lectures</button>
+</section><section id="tests" class="section hidden">
+  <h2>Online Test Series</h2>
+  <div class="card">
+    <p>Q1. Speed of light?</p>
+    <button class="btn" onclick="submitTest()">Submit Test</button>
+  </div>
+</section><section id="videos" class="section hidden">
+  <h2>Course Lectures</h2>
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+</section><footer>
+  © Rankify NEET | JEE Institute | No rank guarantee
+</footer><script>
+  function payNow(course, amount){
+    alert(course + ' payment simulated. After Razorpay approval, student gets login.');
+    localStorage.setItem('paid','yes');
+  }
+  function login(){
+    if(localStorage.getItem('paid')==='yes'){
+      document.getElementById('dashboard').classList.remove('hidden');
+      document.getElementById('login').classList.add('hidden');
+      document.getElementById('studentName').innerText='Rankify Student';
+    } else {
+      alert('Please enroll first');
+    }
+  }
+  function showTests(){
+    document.getElementById('tests').classList.remove('hidden');
+  }
+  function showVideos(){
+    document.getElementById('videos').classList.remove('hidden');
+  }
+  function submitTest(){
+    alert('Test submitted. Score will be available soon.');
+  }
+</script></body>
+</html>
